@@ -17,6 +17,13 @@ class Program
     Console.WriteLine($"Olá {AndrezaGomes}");
    }
 
+   int PerguntarNumeroFavorito()
+   {
+    Console.WriteLine("Qual seu numero favorito? ");
+     int favorito = int.Parse(Console.ReadLine());
+    return favorito;
+   }
+
 
     }
 }
