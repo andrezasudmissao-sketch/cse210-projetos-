@@ -5,7 +5,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Olá, Mundo! Este é o Projeto Exercicio3.");
+       
     //Primeira parte do exercício:
 
     //  Console.Write("Qual é o número mágico? ");

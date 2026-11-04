@@ -5,7 +5,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Olá, Mundo! Este é o Projeto Exercicio2.");
+    
 
         Console.Write("Qual é a sua nota conceitual? ");
         string nota = Console.ReadLine();
