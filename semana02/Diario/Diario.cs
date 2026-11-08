@@ -1,26 +1,56 @@
 using System;
 public class Diario  //public: qualquer código pode criar um objeto dessa classe.
 {
-    private List<string> _entradas;  //private: só pode ser acessado dentro da própria classe Diario.
+    private List<Registro> _registros;  //private: só pode ser acessado dentro da própria classe Diario.
     //_entradas: nome da variável que armazenará as entradas do diário.
-    public Diario()  //Diario() → construtor que inicializa a lista.
+    public void AdiconarRegistro(Registro registro)
     {
-        _entradas = new List<string>();  //new List(): cria uma lista vazia.
-    }
-
-    public void AdicionarEntrada(string entrada)
-    {
-        _entradas.Add(entrada);
-    }
-
-    public void ExibirEntradas()
-    {
-        foreach (var entrada in _entradas)  //"Para cada item da lista _entradas, coloque esse item na variável entrada."
+        foreach (var r in _registros)
         {
-            Console.WriteLine(entrada);
+            if (r.GetData() == registro.GetData())
+            {
+                Console.WriteLine("Já existe um registro para esta data.");
+                return;
+            }
+        }
+        _registros.Add(registro);
+    }
+    public void ExibirTodos()
+    {
+        foreach (var registro in _registros)
+        {
+            registro.Exibir();
         }
     }
-}
 
+    public void SalvarEmArquivo(string Arquivo)
+    {
+        File.WriteAllLines(Arquivo, _registros.Select(r => $"{r.GetData()}|{r._textoPergunta}|{r._textoResposta}"));  //porque ele salva o estado atual completo do diário
+        
+    }
+
+    public void CarregarDeArquivo(string Arquivo)
+    {
+      var linhas = File.ReadAllLines(Arquivo);
+      foreach (var linha in linhas)
+      {
+          var partes = linha.Split('|');
+          if (partes.Length == 3)
+          {
+              var registro = new Registro();
+              registro._data = partes[0];
+              registro._textoPergunta = partes[1];
+              registro._textoResposta = partes[2];
+              registro.DiaDaSemana = DateTime.Parse(partes[0]).DayOfWeek.ToString();
+              _registros.Add(registro);
+          }
+      }
+
+     
+    }
+}
+      
+//Não soube como corrigir esse erro no _data.
+  
 //public: pode ser chamado de fora da classe.
 //void: não retorna nenhum valor.

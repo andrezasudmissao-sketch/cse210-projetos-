@@ -7,17 +7,20 @@ public class GeradorDePerguntas
     {
         _perguntas = new List<string>
         {
-            "Qual código você aprendeu hoje?",
-            "Que auxilios você usou hoje?",
-            "O conteúdo foi muito difícil de entender?",
-            "O que você poderia ter feito melhor?",
+            "O que aprendi no curso hoje?",
+            "Qual conceito achei mais difícil?",
+            "O que consegui fazer sozinho hoje?",
+            "Em qual parte do código fiquei travado?",
+            "O que quero praticar amanhã?"
         };
     }
 
-    public string GerarPergunta()
+
+
+   public string ObterPerguntaAleatoria()
     {
         Random random = new Random();
-        int index = random.Next(_perguntas.Count);
-        return _perguntas[index];
+        int indiceAleatorio = random.Next(_perguntas.Count);
+        return _perguntas[indiceAleatorio];
     }
 }

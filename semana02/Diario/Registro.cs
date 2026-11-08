@@ -1,19 +1,34 @@
 using System;
 public class Registro
 {
-    private string _conteudo;
-    private DateTime _data;
-
-    public Registro(string conteudo)
-    {
-        _conteudo = conteudo;
-      
-    }
-
-    public string Conteudo
-    {
-        get { return _conteudo; }
-    }
-
+    private string _data;
     
+    public void SetData(string data)
+   {
+
+    _data = data;
+    
+   }
+
+    public string DiaDaSemana;
+
+
+    public string _textoPergunta;
+
+
+    public string _textoResposta;
+
+     public string GetData()
+    {
+        
+        return _data;
+    }
+
+    public void Exibir()
+    {   
+        Console.WriteLine("Dia da semana: " + DiaDaSemana);
+        Console.WriteLine("Data: " + _data);
+        Console.WriteLine("Pergunta: " + _textoPergunta);
+        Console.WriteLine("Resposta: " + _textoResposta);
+    }
 }
