@@ -84,4 +84,3 @@ class Program
     }
 }
 
-// ficou icompleto pois estava cansada e não consegui terminar, mas a ideia era criar um diário que fizesse perguntas aleatórias e o usuário pudesse responder, e depois salvar essas respostas em um arquivo.
