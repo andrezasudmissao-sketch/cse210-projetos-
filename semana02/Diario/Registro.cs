@@ -18,7 +18,7 @@ public class Registro
 
     public string _textoResposta;
 
-     public string GetData()
+     public string SetData()
     {
         
         return _data;
@@ -30,5 +30,6 @@ public class Registro
         Console.WriteLine("Data: " + _data);
         Console.WriteLine("Pergunta: " + _textoPergunta);
         Console.WriteLine("Resposta: " + _textoResposta);
+
     }
 }

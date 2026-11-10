@@ -3,16 +3,25 @@ public class Diario  //public: qualquer código pode criar um objeto dessa class
 {
     private List<Registro> _registros;  //private: só pode ser acessado dentro da própria classe Diario.
     //_entradas: nome da variável que armazenará as entradas do diário.
-    public void AdiconarRegistro(Registro registro)
+
+    public Diario()  //construtor da classe Diario.
+    {
+        _registros = new List<Registro>();  //inicializa a lista de registros.
+    }
+    public void AdicionarRegistro(Registro registro)
+
+   
     {
         foreach (var r in _registros)
         {
-            if (r.GetData() == registro.GetData())
+            if (r.SetData() == registro.SetData())
             {
                 Console.WriteLine("Já existe um registro para esta data.");
                 return;
             }
         }
+
+      
         _registros.Add(registro);
     }
     public void ExibirTodos()
@@ -24,13 +33,17 @@ public class Diario  //public: qualquer código pode criar um objeto dessa class
     }
 
     public void SalvarEmArquivo(string Arquivo)
+     
     {
-        File.WriteAllLines(Arquivo, _registros.Select(r => $"{r.GetData()}|{r._textoPergunta}|{r._textoResposta}"));  //porque ele salva o estado atual completo do diário
+        File.WriteAllLines(Arquivo, _registros.Select(r => $"{r.SetData()}|{r._textoPergunta}|{r._textoResposta}"));  //porque ele salva o estado atual completo do diário
         
     }
-
+    
     public void CarregarDeArquivo(string Arquivo)
+    
     {
+        _registros.Clear(); //Remove todos os registros existentes antes de carregar novos registros do arquivo sem precisar de paramentros.
+
       var linhas = File.ReadAllLines(Arquivo);
       foreach (var linha in linhas)
       {
@@ -38,10 +51,10 @@ public class Diario  //public: qualquer código pode criar um objeto dessa class
           if (partes.Length == 3)
           {
               var registro = new Registro();
-              registro._data = partes[0];
+              registro.SetData(partes[0]);
               registro._textoPergunta = partes[1];
               registro._textoResposta = partes[2];
-              registro.DiaDaSemana = DateTime.Parse(partes[0]).DayOfWeek.ToString();
+              registro.DiaDaSemana = DateTime.Parse(partes[0]).DayOfWeek.ToString(); //Essa parte eu que adicionei. 
               _registros.Add(registro);
           }
       }

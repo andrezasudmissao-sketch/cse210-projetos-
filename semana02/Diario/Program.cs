@@ -29,22 +29,58 @@ class Program
 {
     case "1":
        string pergunta = gerador.ObterPerguntaAleatoria();
-        Console.WriteLine(pergunta);
+        Console.WriteLine(pergunta); //Pergunta é exibida
 
-        string resposta = Console.ReadLine();
 
-        Registro novoRegistro = new Registro();
+        string resposta = Console.ReadLine(); //Usuário responde
+
+        string data = DateTime.Now.ToShortDateString(); 
+
+        Registro novoRegistro = new Registro(); //Registro é criado
+        novoRegistro.SetData(data); //Registro recebe data
+        novoRegistro._textoPergunta = pergunta; //Registro recebe pergunta
+        novoRegistro._textoResposta = resposta; //Registro recebe resposta
+        novoRegistro.DiaDaSemana = DateTime.Parse(data).DayOfWeek.ToString(); //Registro recebe dia da semana
+
+        diario.AdicionarRegistro(novoRegistro); //"Diário, adicione este registro e guarde o registro dentro do diário"
 
         break;
 
     case "2":
         diario.ExibirTodos();
+
+
         break;
-}
+
+    case "3":
+        diario.SalvarEmArquivo("diario.txt");
+
+        Console.WriteLine("Digite o nome do arquivo:");
+        string textoResposta = Console.ReadLine();
+        diario.SalvarEmArquivo(textoResposta);
+
+
+        break;
+
+    case "4":
+        diario.CarregarDeArquivo("diario.txt");
+
+        Console.WriteLine("Digite o nome do arquivo:");
+        string arquivo = Console.ReadLine();
+        diario.CarregarDeArquivo(arquivo);
+        break;
+
+    case "5":
+        return;
+
+    default:
+        Console.WriteLine("Opção inválida. Tente novamente.");
+        break;
 
    
 }
     
+    }
     }
 }
 
