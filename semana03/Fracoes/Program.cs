@@ -1,25 +1,25 @@
-using System;
-using System.ComponentModel;
-using System.Security.Cryptography.X509Certificates;
 
-public class Fracoes  //Crie uma classe para armazenar frações
+using System;
+
+class Program
 {
-    private int _numerador { get; set; }  //A classe deve ter dois atributos: numerador e denominador.
-    private int _denominador { get; set; }
-    public Fracoes()
+    static void Main(string[] args)
     {
-        _numerador = 1; 
-        _denominador = 1;
-    }
-    public Fracoes(int numerador) //numerador == 6
-    {
-      _numerador = numerador;  //Em C# usar = para atribuir valores, não parênteses.
-      _denominador = 1;
-    }
-    public Fracoes(int numerador, int denominador)
-    {
-        _numerador = numerador; //O atributo _numerador recebe o valor do parâmetro numerador.
-        _denominador =denominador;
+        Fracoes f1 = new Fracoes();
+        Console.WriteLine(f1.ObterFracoesEmTexto());
+        Console.WriteLine(f1.ObterFracoesEmDecimal());
+
+        Fracoes f2 = new Fracoes(5);
+        Console.WriteLine(f2.ObterFracoesEmTexto());
+        Console.WriteLine(f2.ObterFracoesEmDecimal());
+
+        Fracoes f3 = new Fracoes(3, 4);
+        Console.WriteLine(f3.ObterFracoesEmTexto());
+        Console.WriteLine(f3.ObterFracoesEmDecimal());
+
+        Fracoes f4 = new Fracoes(1, 3);
+        Console.WriteLine(f4.ObterFracoesEmTexto());
+        Console.WriteLine(f4.ObterFracoesEmDecimal());
     }
     
 }
