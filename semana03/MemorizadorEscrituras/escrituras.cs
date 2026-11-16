@@ -8,7 +8,7 @@ public class MemorizarEscrituras
    private string escritura;
    private int versiculoInicial;
    private int versiculoFinal;
-   private string EscrituraOculta;
+    private string EscrituraOculta; //→ altera o texto.
 
     public MemorizarEscrituras(string _referencia, string _escritura, int _versiculoInicial, int _versiculoFinal)
     {
@@ -16,11 +16,12 @@ public class MemorizarEscrituras
         escritura = _escritura;
         versiculoInicial = _versiculoInicial;
         versiculoFinal = _versiculoFinal;
+        EscrituraOculta = _escritura;
     }
-    public void ExibirEscrituras()
+    public void ExibirEscrituras() //conversa com o usuário e mostra o resultado.
     {
     Console.Clear();
-    Console.WriteLine(referencia + " - " + escritura);
+    Console.WriteLine(referencia + " - " + EscrituraOculta);
     Console.WriteLine("Pressione Enter para continuar ou digite sair.");
     string resposta = Console.ReadLine();
 
@@ -31,8 +32,22 @@ public class MemorizarEscrituras
     }
     else
     {
-        Console.WriteLine("Continuando...");
+        OcultarPalavra();
+        if (TemPalavrasOcultas())
+        {
+            ExibirEscrituras();
+        }
+        else
+        {
+            Console.WriteLine("Parabéns! Você memorizou toda a escritura.");
+            Console.WriteLine("Pressione Enter para sair.");
+            Console.ReadLine();
+            Environment.Exit(0);
+        }
+       
     }
+
+
     }
 
     public void OcultarPalavra()
@@ -47,11 +62,30 @@ public class MemorizarEscrituras
         Console.WriteLine(referencia + " - " + escritaOculta);
         
         EscrituraOculta = escritaOculta;
+    
 
     }
+
+    public bool TemPalavrasOcultas()
+    {
+        string[] palavras = EscrituraOculta.Split(' ');
+        foreach (string palavra in palavras)
+        {
+            if (palavra == "_____")
+                return true;
+        }
+        return false;
+    }
+
+
+
     
 }
  
+ //if = "tomar uma decisão"
+//while = "repetir"
+//void = não retorna nada
+//bool = retorna true ou false
 
    
    
