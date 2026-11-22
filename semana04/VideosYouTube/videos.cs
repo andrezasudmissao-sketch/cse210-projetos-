@@ -4,7 +4,7 @@ public class Video
     public string _titulo;
     public string _autor;
 
-    public double _duracao;
+    public int _duracao;
 
     public List<Comentario> _comentarios = new List<Comentario>();
 
