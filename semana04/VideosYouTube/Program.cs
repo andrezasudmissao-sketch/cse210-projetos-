@@ -8,18 +8,24 @@ class Program
        video1._titulo = "Video 1";
        video1._autor = "NomeDoAutorDocanal";
        video1._duracao = 300;
+    
 
        Comentario comentario1 = new Comentario();
        comentario1._textodecomentarios = "Estava perfeito.";
        comentario1._nomedapessoa = "Jullia Beatriz";
+       comentario1._quantidadeDeCurtidas = 10;
 
        Comentario comentario2 = new Comentario();
        comentario2._textodecomentarios = "Ficou muito bom.";
        comentario2._nomedapessoa = "João Fernandes";
+       comentario2._quantidadeDeCurtidas = 14;
+
 
        Comentario comentario3 = new Comentario();
        comentario3._textodecomentarios = "Poderia ter ficado melhor.";
        comentario3._nomedapessoa = "Emanuelle Silva";
+       comentario3._quantidadeDeCurtidas = 3;
+
 
        video1._comentarios.Add(comentario1);
        video1._comentarios.Add(comentario2);
@@ -34,14 +40,20 @@ class Program
        Comentario comentario4 = new Comentario();
        comentario4._textodecomentarios = "Esse merece o Oscar.";
        comentario4._nomedapessoa = "Fernanda Lima";
+       comentario4._quantidadeDeCurtidas = 100;
+
 
        Comentario comentario5 = new Comentario();
        comentario5._textodecomentarios = "Não vi tão feio";
        comentario5._nomedapessoa = "Jesse Ramos";
+       comentario5._quantidadeDeCurtidas = 34;
+
 
        Comentario comentario6 = new Comentario();
        comentario6._textodecomentarios = "Tentarei fazer igual";
        comentario6._nomedapessoa = "Emanuel Lima";
+       comentario6._quantidadeDeCurtidas = 140;
+
 
        video2._comentarios.Add(comentario4);
        video2._comentarios.Add(comentario5);
@@ -56,14 +68,20 @@ class Program
        Comentario comentario7 = new Comentario();
        comentario7._textodecomentarios = "Eu teria feito melhor.";
        comentario7._nomedapessoa = "André Souza";
+       comentario7._quantidadeDeCurtidas = 56;
+
 
        Comentario comentario8 = new Comentario();
        comentario8._textodecomentarios = "Farmou aura hoje.";
        comentario8._nomedapessoa = "Sheila Braga";
+       comentario8._quantidadeDeCurtidas = 98;
+
 
        Comentario comentario9 = new Comentario();
        comentario9._textodecomentarios = "Super Legal.";
        comentario9._nomedapessoa = "Emanuelly Alcantará";
+       comentario9._quantidadeDeCurtidas = 23;
+
 
        video3._comentarios.Add(comentario7);
        video3._comentarios.Add(comentario8);
@@ -77,6 +95,7 @@ class Program
         Console.WriteLine($"Autor: {video._autor}");
         Console.WriteLine($"Duração: {video._duracao} segundos");
         Console.WriteLine($"Quantidade de comentários: {video.QuantidadeDeComentarios()}");
+        Console.WriteLine($"Quantidade de curtidas: {video._comentarios.Sum(c => c._quantidadeDeCurtidas)}");
         Console.WriteLine("Comentários:");
         foreach (Comentario comentario in video._comentarios)
         {

@@ -20,6 +20,9 @@ public class Video
         public string _nomedapessoa;
 
         public string _textodecomentarios;
+
+        public int _quantidadeDeCurtidas;
+
 }
 
 
