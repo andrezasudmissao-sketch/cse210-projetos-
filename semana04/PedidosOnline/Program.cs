@@ -31,9 +31,7 @@ class Program
         //exibir Cliente
         Console.WriteLine($"O nome do Cliente é: {cliente}");
 
-        Console.WriteLine($"O primeiro produto escolhido foi: {produto1}");
-
-        Console.WriteLine($"O segundo produto escolhido foi: {produto2}");
+        Console.WriteLine($"O primeiro produto escolhido foi: {produto1} e o segundo produto: {produto2}");
 
         // Exibindo o custo total
         Console.WriteLine($"Custo Total do Pedido: {custoTotal:C}");
