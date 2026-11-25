@@ -28,6 +28,8 @@ class Program
         // Exibindo o custo total
         Console.WriteLine($"Custo Total do Pedido: {custoTotal:C}");
 
+        
+
 
        
     }
