@@ -25,6 +25,16 @@ class Program
         // Calculando o custo total do pedido
         decimal custoTotal = pedido.CalcularCustoTotal();
 
+        //exibir endereco
+        Console.WriteLine($"Endereco do Cliente: {endereco}");
+
+        //exibir Cliente
+        Console.WriteLine($"O nome do Cliente é: {cliente}");
+
+        Console.WriteLine($"O primeiro produto escolhido foi: {produto1}");
+
+        Console.WriteLine($"O segundo produto escolhido foi: {produto2}");
+
         // Exibindo o custo total
         Console.WriteLine($"Custo Total do Pedido: {custoTotal:C}");
 
