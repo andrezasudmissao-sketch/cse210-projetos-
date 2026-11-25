@@ -18,25 +18,25 @@ class Pedidos
 
         public Produto(string nome, int id, decimal preco, int quantidade) //← construtor
         {
-            Nome = nome;
-            Id = id;
-            Preco = preco;
-            Quantidade = quantidade;
+            _Nome = nome;
+            _Id = id;
+            _Preco = preco;
+            _Quantidade = quantidade;
         }
 
         public string ObterNome()
         {
-            return Nome;
+            return _Nome;
         }
 
         public int ObterID()
         {
-            return Id;
+            return _Id;
         }
 
         public decimal CalcularCustoTotal()
         {
-          return Preco * Quantidade;
+          return _Preco * _Quantidade;
       
         }
     }
